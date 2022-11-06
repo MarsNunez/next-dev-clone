@@ -1,26 +1,23 @@
-html,
-body {
-  padding: 0;
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.box {
+  width: 651px;
+}
+.small-box {
+  max-width: 500px;
 }
 
-a {
-  color: inherit;
-  text-decoration: none;
+.listings {
+  background-color: rgb(250, 250, 250);
 }
 
-* {
-  box-sizing: border-box;
+.post-image {
+  height: 40vw;
+  max-height: 18rem;
 }
 
-@media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
-  }
-  body {
-    color: white;
-    background: black;
-  }
+.paragraph {
+  font-family: "Trispace", sans-serif;
 }
