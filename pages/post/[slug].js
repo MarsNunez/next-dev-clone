@@ -1,7 +1,8 @@
 import Layout from "../../components/Layout";
-import { useRouter } from "next/router";
+import { sanityClient, builder } from "../../sanity";
+import PortableText from "react-portable-text";
 
-const Post = () => {
+const Post = ({ post }) => {
   return (
     <Layout>
       <div className="flex gap-4 w-fit mx-auto sm:px-5">
@@ -32,29 +33,28 @@ const Post = () => {
         <div className="middle-box mt-4">
           <div className="card md:max-w-3xl borderw-full bg-white pb-4 md:pb-8 sm:rounded-md overflow-hidden mb-2">
             <img
-              src="../img/logo.png"
+              src={builder.image(post.mainImage).url()}
               className="w-full h-full max-h-80 object-cover mb-8"
               alt="post logo"
             />
             <div className="flex md:mt-7 px-5 md:px-16 gap-2 mb-7">
               <img
-                src="../img/logo.png"
+                src={builder.image(post.author.image).url()}
                 alt="img profile"
                 className="h-10 rounded-full"
               />
               <div className="text-sm flex flex-col justify-center">
                 <p className="text-md font-semibold text-gray-800">
-                  Tapajyoti Bose
+                  {post.author.name}
                 </p>
-                <p className="font-light text-xs  text-gray-700">Oct 30</p>
+                <p className="font-light text-xs  text-gray-700">
+                  {new Date(post._createdAt).toLocaleString()}
+                </p>
               </div>
             </div>
 
             <div className="px-5 md:px-16">
-              <h3 className="text-xl md:text-5xl font-bold">
-                7 Shorthand Optimization Tricks every JavaScript Developer
-                Should Know 😎
-              </h3>
+              <h3 className="text-xl md:text-5xl font-bold">{post.title}</h3>
               <div className="text-sm font-light text-gray-800 flex flex-wrap mt-2 mb-4">
                 <div className="w-fit cursor-pointer border border-transparent hover:border-gray-300  hover:bg-gray-100 px-2 py-1 rounded-md duration-100 ease-in-out">
                   <span className="text-gray-500">#</span>javascript
@@ -70,45 +70,20 @@ const Post = () => {
                 </div>
               </div>
               <div className="mt-7 leading-5">
-                <p className="text-xl paragraph leading-8">
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam
-                  in porta est, in gravida metus. In sollicitudin diam sit amet
-                  dictum imperdiet. Donec nec ante eu purus malesuada congue at
-                  vitae dui. Etiam iaculis orci sed ligula vehicula, at
-                  hendrerit enim ullamcorper. Nam ac purus in diam tristique
-                  tincidunt ut eget felis. Mauris ut ante eros. Aenean id justo
-                  ultricies, condimentum dui ut, fringilla erat. Integer
-                  vulputate, leo a vestibulum maximus, quam neque consectetur
-                  metus, non interdum lectus erat vel tellus. Quisque imperdiet
-                  mauris congue dui molestie viverra ut quis urna. Maecenas
-                  consectetur tortor ut vehicula pulvinar. Aliquam a lacinia
-                  eros. Etiam ac eros quis dui pretium pulvinar. Sed a erat
-                  elit. Sed vel viverra sem, at pellentesque massa. Morbi eget
-                  arcu porta, commodo lacus faucibus, porta tortor. Vestibulum
-                  felis elit, scelerisque non aliquam at, rutrum sagittis justo.
-                  Morbi vitae tempor ipsum. Mauris gravida, eros non blandit
-                  dictum, est sem tincidunt ipsum, vel porta nunc sem ut ante.
-                  Morbi felis nisi, fringilla eget nisi aliquet, fermentum
-                  sodales nisi. Donec tincidunt eros vel lectus dapibus, eu
-                  aliquet enim viverra. Sed feugiat gravida dolor sed vehicula.
-                  Fusce orci leo, vestibulum quis porttitor eget, dapibus non
-                  risus. Phasellus dictum nec nunc vitae pretium. Aliquam erat
-                  volutpat. Ut ac arcu finibus, dignissim ante et, vulputate
-                  risus. Nam lobortis accumsan ipsum, consequat feugiat lacus
-                  malesuada eget. Vestibulum vitae pharetra ipsum. Etiam vitae
-                  fringilla sapien. Aliquam condimentum dolor dolor, sit amet
-                  laoreet justo pulvinar sit amet. Cras nec lorem mauris. Nunc
-                  nec enim vel elit auctor sollicitudin sed eget ante. Mauris
-                  sagittis, justo a scelerisque blandit, mauris erat semper
-                  ante, sed sagittis ex velit in magna. Sed egestas nulla eu
-                  ligula porta finibus. Pellentesque habitant morbi tristique
-                  senectus et netus et malesuada fames ac turpis egestas. Duis
-                  aliquam pellentesque auctor. Cras ex ipsum, sagittis ut
-                  pharetra et, hendrerit ac urna. Nunc vitae justo neque.
-                  Vestibulum eros nunc, pulvinar a malesuada eu, egestas vitae
-                  quam. Quisque tempus pretium augue in pharetra. Etiam nec
-                  imperdiet nunc.
-                </p>
+                <PortableText
+                  className="text-xl paragraph leading-8"
+                  dataset={process.env.NEXT_PUBLIC_SANITY_DATASET}
+                  projectId={process.env.NEXT_PUBLIC_SANITY_PROJECT_ID}
+                  content={post.body}
+                  serializers={{
+                    h2: (props) => (
+                      <h2
+                        className="text-2xl underline mb-2 font-bold"
+                        {...props}
+                      />
+                    ),
+                  }}
+                />
               </div>
             </div>
           </div>
@@ -186,12 +161,12 @@ const Post = () => {
             <div className="h-8 w-80 bg-indigo-900 px-44"></div>
             <div className="flex abolute px-4 h-10 group cursor-pointer ">
               <img
-                src="../img/logo.png"
+                src={builder.image(post.author.image).url()}
                 alt="logo"
                 className="h-12 rounded-full relative -top-5"
               />
               <p className="mt-1 ml-2 text-gray-700 group-hover:text-indigo-700 cursor-pointer font-semibold text-xl">
-                Tapajyoti Bose
+                {post.author.name}
               </p>
             </div>
             <div className="px-4 mt-2">
@@ -204,7 +179,7 @@ const Post = () => {
                 <span className="block uppercase font-semibold text-xs text-gray-800">
                   Location
                 </span>{" "}
-                Brazil
+                Ireland
               </p>
               <p className="text-gray-700 font-light text-md mt-3">
                 <span className="block uppercase font-semibold text-xs text-gray-800">
@@ -294,3 +269,57 @@ const Post = () => {
 };
 
 export default Post;
+
+export const getStaticPaths = async () => {
+  const query = `*[_type == 'post'] {
+    _id,
+    slug{
+      current
+    }
+  }`;
+
+  const posts = await sanityClient.fetch(query);
+
+  const paths = posts.map((post) => ({
+    params: {
+      slug: post.slug.current,
+    },
+  }));
+
+  return {
+    paths,
+    fallback: "blocking",
+  };
+};
+
+export const getStaticProps = async ({ params }) => {
+  const query = `*[_type == 'post' && slug.current == $slug][0] {
+    _id,
+    _createdAt,
+    title,
+    author-> {
+      name,
+      image,
+    },
+    mainImage,
+    slug,
+    body
+  }`;
+
+  const post = await sanityClient.fetch(query, {
+    slug: params?.slug,
+  });
+
+  if (!post) {
+    return {
+      notFound: true,
+    };
+  }
+
+  return {
+    props: {
+      post,
+    },
+    revalidate: 60, //After 60 seconds, it'll update the old cached version
+  };
+};
