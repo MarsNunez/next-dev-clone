@@ -115,7 +115,7 @@ const Post = ({ post }) => {
                 />
                 <div className="">
                   <h4 className="font-semibold text-xl text-gray-800 group-hover:text-indigo-700">
-                    Don't fear the grepper! (4)
+                    Do not fear the grepper! (4)
                   </h4>
                   <p className="font-light text-gray-600 group-hover:text-indigo-700">
                     Elizabeth Mattijsen - Oct 27
