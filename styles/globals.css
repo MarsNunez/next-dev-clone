@@ -21,3 +21,7 @@
 .paragraph {
   font-family: "Trispace", sans-serif;
 }
+
+.card:first-child {
+  display: block !important;
+}

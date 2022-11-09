@@ -1,29 +1,28 @@
-const Card = () => {
+import { builder } from "../sanity";
+
+const Card = ({ author, mainImage, title }) => {
   return (
     <div className="card md:max-w-2xl cursor-pointer borderw-full bg-white pb-4 md:pb-8 md:rounded-md overflow-hidden mb-2">
       <img
-        src="../img/logo.png"
+        src={builder.image(mainImage).url()}
         className="post-image w-full object-cover"
         alt="post logo"
       />
-      <div className="flex mt-4 md:mt-7 px-5 gap-2 mb-3">
+      <div className="flex mt-4 md:mt-7 px-5 gap-2 mb-3 items-center">
         <img
-          src="../img/logo.png"
+          src={builder.image(author.image).url()}
           alt="img profile"
-          className="h-9 rounded-full"
+          className="h-10 rounded-full"
         />
         <div className="text-sm">
-          <p>Tapajyoti Bose</p>
-          <p className="font-light text-xs  text-gray-700">
-            Oct 30 (1 day ago)
-          </p>
+          <p>{author.name}</p>
+          <p className="font-light text-xs  text-gray-700">Nov 12 - 2022</p>
         </div>
       </div>
 
       <div className="px-5 md:px-16">
         <h3 className="text-xl md:text-3xl font-semibold hover:text-indigo-800">
-          7 Shorthand Optimization Tricks every JavaScript Developer Should Know
-          😎
+          {title}
         </h3>
         <div className="text-sm font-light text-gray-800 flex flex-wrap mt-2 mb-4">
           <div className="w-fit cursor-pointer border border-transparent hover:border-gray-300  hover:bg-gray-100 px-2 py-1 rounded-md duration-100 ease-in-out">
@@ -42,13 +41,13 @@ const Card = () => {
         <div className="flex justify-between">
           <div className="font-light text-gray-800 flex gap-1">
             <div className="cursor-pointer text-md flex gap-2 items-center px-2 py-1 hover:bg-gray-100 rounded-md duration-200 ease-in-out">
-              <i class="fa-regular fa-heart"></i>
+              <i className="fa-regular fa-heart"></i>
               <p className="text-sm flex gap-1">
                 69 <span className="hidden md:block">Reactions</span>
               </p>
             </div>
             <div className="cursor-pointer text-md flex gap-2 items-center px-2 py-1 hover:bg-gray-100 rounded-md duration-200 ease-in-out">
-              <i class="fa-regular fa-comment"></i>
+              <i className="fa-regular fa-comment"></i>
               <p className="text-sm flex gap-1">
                 10 <span className="hidden md:block">Comments</span>
               </p>

@@ -1,4 +1,5 @@
 import Layout from "../../components/Layout";
+import { useRouter } from "next/router";
 
 const Post = () => {
   return (
@@ -7,24 +8,24 @@ const Post = () => {
         <div className="left-box mt-16 hidden sm:flex flex-col gap-4 w-12 text-gray-800">
           <div className="flex flex-col items-center justify-center cursor-pointer group">
             <div className="text-2xl border-transparent h-10 w-10 flex items-center justify-center rounded-full group-hover:bg-red-100 group-hover:text-red-600">
-              <i class="fa-regular fa-heart"></i>
+              <i className="fa-regular fa-heart"></i>
             </div>
             <p className="font-light text-sm text-gray-600">4</p>
           </div>
           <div className="flex flex-col items-center justify-center cursor-pointer group">
             <div className="text-2xl border-transparent h-10 w-10 flex items-center justify-center rounded-full group-hover:bg-orange-100 group-hover:text-orange-600">
-              <i class="fa-regular fa-comment"></i>
+              <i className="fa-regular fa-comment"></i>
             </div>
             <p className="font-light text-sm text-gray-600">7</p>
           </div>
           <div className="flex flex-col items-center justify-center cursor-pointer group">
             <div className="text-2xl border-transparent h-10 w-10 flex items-center justify-center rounded-full group-hover:bg-indigo-100 group-hover:text-indigo-600">
-              <i class="fa-regular fa-bookmark"></i>
+              <i className="fa-regular fa-bookmark"></i>
             </div>
             <p className="font-light text-sm text-gray-600">2</p>
           </div>
           <div className="mx-auto text-gray-600 text-2xl border-transparent h-10 w-10 flex items-center justify-center cursor-pointer rounded-full hover:bg-gray-200 hover:text-gray-900 duration-100 ease-in-out">
-            <i class="fa-solid fa-ellipsis"></i>
+            <i className="fa-solid fa-ellipsis"></i>
           </div>
         </div>
 
@@ -285,7 +286,7 @@ const Post = () => {
           . DEV Community 👩‍💻👨‍💻 © 2016 - 2022.
         </p>
         <div className="mt-2 h-10 w-10 flex items-center justify-center mx-auto rounded-md hover:bg-indigo-200 group cursor-pointer">
-          <i class="fa-solid fa-seedling text-green-600 text-2xl"></i>
+          <i className="fa-solid fa-seedling text-green-600 text-2xl"></i>
         </div>
       </footer>
     </Layout>

@@ -5,7 +5,7 @@ const Navbar = () => {
     <nav className="shadow-sm bg-white">
       <div className="flex justify-between max-w-screen-xl mx-auto ">
         <div className="flex py-2 items-center px-4">
-          <i class="fa-solid fa-bars text-2xl md:hidden mr-5 cursor-pointer"></i>
+          <i className="fa-solid fa-bars text-2xl md:hidden mr-5 cursor-pointer"></i>
           <Link href="/">
             <img
               className="h-10 w-12 rounded-sm"
@@ -24,10 +24,10 @@ const Navbar = () => {
             Create Post
           </button>
           <div className="h-10 w-10 flex items-center justify-center rounded-md hover:bg-indigo-100 md:hidden group cursor-pointer">
-            <i class="fa-solid fa-magnifying-glass text-2xl  text-gray-800 group-hover:text-indigo-700"></i>
+            <i className="fa-solid fa-magnifying-glass text-2xl  text-gray-800 group-hover:text-indigo-700"></i>
           </div>
           <div className="h-10 w-10 flex items-center justify-center rounded-md hover:bg-indigo-100 group cursor-pointer">
-            <i class="fa-regular fa-bell text-2xl text-gray-800 group-hover:text-indigo-700"></i>
+            <i className="fa-regular fa-bell text-2xl text-gray-800 group-hover:text-indigo-700"></i>
           </div>
           <img
             src="../img/logo.png"
