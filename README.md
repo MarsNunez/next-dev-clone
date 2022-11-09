@@ -1,6 +1,6 @@
 # NextJS Dev Webpage Clone 👨‍💻
 
-![App Image](https://repository-images.githubusercontent.com/343801550/3a5bed00-7b82-11eb-8a6a-da2b45c5265c)
+![App Image](https://repository-images.githubusercontent.com/562505220/ae0caff0-8f8d-48df-9b78-7468c898e142)
 
-Application 👉🏻 [ [Here](https://budget-app-marcelo-sebastian.netlify.app/) ].\
+Application 👉🏻 [ [Here](https://next-dev-clone.vercel.app/) ].\
 App Manager 👉🏻 [ [Here](https://devsanity.sanity.studio/desk) ].
